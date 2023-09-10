@@ -63,17 +63,23 @@ function App() {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
 
     if (!isLiked) {
-      api.setLike(card._id).then((newCard) => {
-        setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
-        ).catch((err) => console.log("Error like card", err));
-      });
+      api
+        .setLike(card._id)
+        .then((newCard) => {
+          setCards((state) =>
+            state.map((c) => (c._id === card._id ? newCard : c))
+          );
+        })
+        .catch((err) => console.log("Error like card", err));
     } else {
-      api.removeLike(card._id).then((newCard) => {
-        setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
-        ).catch((err) => console.log("Error like card", err));
-      });
+      api
+        .removeLike(card._id)
+        .then((newCard) => {
+          setCards((state) =>
+            state.map((c) => (c._id === card._id ? newCard : c))
+          );
+        })
+        .catch((err) => console.log("Error like card", err));
     }
   }
 
