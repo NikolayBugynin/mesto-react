@@ -22,8 +22,7 @@ export default function PopupWithForm({
           <form
             className={`popup__form popup__form_${name}`}
             name={name}
-            onSubmit={onSubmit}
-            noValidate>
+            onSubmit={onSubmit}>
             {children}
 
             <button type="submit" className="popup__button button">
